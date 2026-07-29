@@ -17,7 +17,7 @@ app.post('/webhook', async (req, res) => {
       const data = callback_query.data; 
 
       let newText = originalText;
-      if (data === 'sent' || data === 'valide' || data === 'Valide') {
+      if (data && data.startsWith('sent')) {
         newText += '\n\n✅ SENT - validated';
       } else {
         newText += '\n\n❌ Skipped';
